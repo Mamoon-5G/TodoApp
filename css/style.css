@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --background: #101114;
+    --primary-color: #1c1d20;
+    --secondary-color: #4a4d57;
+    --accent-color: #dd003d;
+    --text-color: #f9f9f9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    color: var(--text-color);
+    font-family: 'Poppins';
+}
+
+body {
+    height: 100vh;
+    padding: 10px;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--accent-color);
+    margin: 100px 0 20px 0;
+    font-size: 3rem;
+}
+
+.form {
+    width: 700px;
+    max-width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+#todo-input {
+    width: 100%;
+    background: none;
+    box-sizing: border-box;
+    border: 2px solid var(--secondary-color);
+    color: var(--text-color);
+    caret-color: var(--accent-color);
+    font: inherit;
+    border-radius: 1000px;
+    padding: 12px 20px;
+}
+
+#todo-input:focus {
+    outline: none;
+}
+
+form {
+    position: relative;
+}
+
+#add-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--accent-color);
+    border-radius: 1000px;
+    border: none;
+    height: 100%;
+    font: inherit;
+    font-weight: 800;
+    padding: 0 30px;
+    color: var(--background);
+    cursor: pointer;
+}
+
+.todo {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    padding: 0 15px;
+    margin: 10px 0;
+    transition: .2s ease;
+}
+
+.todo .todo-text {
+    padding: 15px;
+    flex-grow: 1;
+    transition: .2s ease;
+}
+
+.delete-btn {
+    padding: 3px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.delete-btn svg:hover{
+    transition: .2s ease;
+    fill:red;
+}
+.custom-checkbox{
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    min-height: 20px;
+    min-width: 20px;
+    transition: .2s ease;
+    cursor: pointer;
+}
+.custom-checkbox svg{
+    fill: transparent;
+}
+input[type='checkbox']:checked ~ .custom-checkbox{
+    background-color: var(--accent-color);
+    transition: .2s ease;
+}
+input[type='checkbox']:checked ~ .custom-checkbox svg{
+    fill: var(--background);
+}
+input[type='checkbox']:checked ~ .todo-text{
+    text-decoration: line-through;
+}
+input[type="checkbox"]{
+    display: none;
+}
+@media screen and (max-width: 500px) {
+    html{
+        font-size: 12pt
+    }
+    #add-btn{
+        position: unset;
+        width: 100%;
+        margin-top: 10px;
+        padding: 15px;
+        height: auto;
+    }
+    h1{
+        margin-top: 50px;
+        font-size: 15vw;
+    }
+}
